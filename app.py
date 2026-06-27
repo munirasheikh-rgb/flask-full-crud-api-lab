@@ -17,6 +17,10 @@ events = [
     Event(2, "Python Workshop")
 ]
 
+@app.route("/")
+def index():
+    return jsonify({"message":"Welcome to the Event App!"})
+
 @app.route("/events", methods=["GET"])
 def get_events():
     return jsonify([event.to_dict() for event in events])
